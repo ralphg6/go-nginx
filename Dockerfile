@@ -40,7 +40,7 @@ RUN chmod +x /usr/local/bin/go-wrapper
 #RUN git tag -l
 
 RUN go get github.com/coreos/etcd
-RUN go get github.com/docker/docker
+RUN go get -d github.com/docker/docker
 
 RUN ONBUILD go-wrapper download
 RUN ONBUILD go-wrapper install
