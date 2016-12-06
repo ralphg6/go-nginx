@@ -33,8 +33,11 @@ COPY go-wrapper /usr/local/bin/
 RUN chmod +x /usr/local/bin/go-wrapper
 
 # Fixando a versão do etcd na 3.0
-RUN mkdir -p /go/src/github.com/coreos/etcd && \
-	git clone -b release-3.0 https://github.com/coreos/etcd.git /go/src/github.com/coreos/etcd
+#WORKDIR /go/src/github.com/coreos/etcd
+
+#RUN git clone -b release-3.0 --depth 1 https://github.com/coreos/etcd.git .
+
+#RUN git tag -l
 
 RUN go get github.com/coreos/etcd
 RUN go get github.com/docker/docker
